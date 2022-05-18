@@ -5,7 +5,7 @@ Created on Wed May 18 11:41:03 2022
 @author: Всеволод
 """
 
-from SiC_Structure_class import Structure
+from SiC_lib.SiC_Structure_class import Structure
 
 class UniqueOligomers():
     
@@ -13,7 +13,7 @@ class UniqueOligomers():
         self._unique_structres = {}
 
     
-    def addStructure(self, oligomer_struct: Structure):
+    def add_structure(self, oligomer_struct: Structure):
         """
         Добавляет данные структуры: К-код и степень олимгоеризации
         если они являются уникальными, для выделения присутсвующих 
@@ -21,20 +21,38 @@ class UniqueOligomers():
         Parameters
         ----------
         oligomers_struct : Structure
-            DESCRIPTION.
+            Структура олигомера типа Structure
 
         Returns
         -------
         None.
 
         """
-        kcode = oligomer_struct.getKCode()
-        degree = oligomer_struct.getOligomerizationDegree()
+        kcode = oligomer_struct.get_K_code()
+        degree = oligomer_struct.get_oligomerization_degree()
         if kcode not in self._unique_structres.keys():
             self._unique_structres[kcode] = degree
             
-    def getUniqueOligomerizationDegrees(self) -> list:
+    def get_unique_oligomerization_degrees(self) -> list:
+        """
+        Возваращет уникальные стпени олигомеризации
+
+        Returns
+        -------
+        list
+             [2,3,4 ...].
+
+        """        
         return set(self._unique_structres.values())
     
-    def getUniqueStructures(self) -> list:
+    def get_unique_structures(self):
+        """
+        Возвращает уникальеные структуры
+
+        Returns
+        -------
+        dist
+            Уникальные структуры {'K1NK2MK3LK4P' : степень олигомеризации}
+
+        """
         return self._unique_structres

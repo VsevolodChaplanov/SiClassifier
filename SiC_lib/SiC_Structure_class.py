@@ -11,25 +11,41 @@ class Structure():
         Хранит в себе только данные о кодировке: K1NK2MK3LK4P -> [] -
         - массив координационных чисел всех атомов кремния в структуре
     Степень олигомеризации определяется через сумму атомов кремния        
+    
+    Parameters
+    ----------
+    coordinate_numbers : list
+        Координационные числа - [1,2,3,...]
+    -------
+
     """    
-    _coordinate_numbers = []
     
     def __init__(self, coordinate_numbers: list):
         self._coordinate_numbers = coordinate_numbers
         
         
-    def getOligomerizationDegree(self) -> int:
+    def get_oligomerization_degree(self):
+        """
+        Получить степень олигомеризации структуры
+
+        Returns
+        -------
+        int
+            Степень олигомеризации
+
+        """
         return len(self._coordinate_numbers)
     
-    def getKCode(self) -> str:
+    def get_K_code(self):
         """
         Возварщает строку кодировки структуры
         в терминах координационных чисел
+        
         Returns
         -------
         str
             "K1NK2MK3LK4P"
-
+        
         """        
         # Число атомов со степенью олигомеризации 1
         olig_num_1 = self._coordinate_numbers.count(1)
