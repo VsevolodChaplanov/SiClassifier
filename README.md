@@ -8,14 +8,12 @@
 Для ОС "Windows"
 ``` sh
 pip install numpy
-pip install numpy
 pip install os
 pip install sys
 pip install shutil
 ```
 Для на базе ОС "Linux"
 ``` sh
-pip3 install numpy
 pip3 install numpy
 pip3 install os
 pip3 install sys
